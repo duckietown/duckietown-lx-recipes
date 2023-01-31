@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Reprojection Visualization
+Comment=MOOC - State Estimation - Reprojection
+Exec=/usr/bin/launch-reprojection-vis.sh
+Icon=/root/.icons/reprojection.png
+Terminal=true
+X-KeepTerminal=true
+StartupNotify=true
