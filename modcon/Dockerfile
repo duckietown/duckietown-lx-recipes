@@ -94,7 +94,5 @@ LABEL org.duckietown.label.module.type="exercise" \
     org.duckietown.label.base.image="${BASE_IMAGE}" \
     org.duckietown.label.base.tag="${BASE_TAG}" \
     org.duckietown.label.maintainer="${MAINTAINER}"
-
-COPY --from=recipe ./rosagent.py /code/submission_ws/src/agent/include/rosagent/
 # <== Do not change the code above this line
 # <==================================================
