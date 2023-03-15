@@ -1,8 +1,8 @@
 # syntax=docker/dockerfile:1.4
 # parameters
-ARG EXERCISE_NAME="modcon"
-ARG DESCRIPTION="ModCon Exercise"
-ARG MAINTAINER="Andrea F. Daniele (afdaniele@duckietown.com)"
+ARG EXERCISE_NAME="dd21-sensors"
+ARG DESCRIPTION="In this learning experience you will learn how the sensors on your Duckiedrone work."
+ARG MAINTAINER="Davide Iafrate (davide.iafrate@duckietow)"
 
 # ==================================================>
 # ==> Do not change the code below this line
@@ -53,7 +53,7 @@ COPY --from=recipe ./dependencies-apt.txt "${REPO_PATH}/"
 RUN dt-apt-install ${REPO_PATH}/dependencies-apt.txt
 
 # install python3 dependencies
-ARG PIP_INDEX_URL="https://pypi.org/simple/"
+ARG PIP_INDEX_URL="https://pypi.org/simple"
 ENV PIP_INDEX_URL=${PIP_INDEX_URL}
 COPY --from=recipe ./dependencies-py3.* "${REPO_PATH}/"
 RUN dt-pip3-install "${REPO_PATH}/dependencies-py3.*"
@@ -94,7 +94,5 @@ LABEL org.duckietown.label.module.type="exercise" \
     org.duckietown.label.base.image="${BASE_IMAGE}" \
     org.duckietown.label.base.tag="${BASE_TAG}" \
     org.duckietown.label.maintainer="${MAINTAINER}"
-
-COPY --from=recipe ./rosagent.py /code/submission_ws/src/agent/include/rosagent/
 # <== Do not change the code above this line
 # <==================================================
