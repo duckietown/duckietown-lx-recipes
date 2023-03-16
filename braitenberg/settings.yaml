@@ -1,5 +1,0 @@
-# Exercise settings file
-
-agent_base: "template_random" # currently not implemented, the agent base image to use
-ws_dir: "solution" # directory that contains the code
-ros: false
