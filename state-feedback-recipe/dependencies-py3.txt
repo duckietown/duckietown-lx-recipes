@@ -1,2 +1,5 @@
 # LIST YOUR PYTHON3 PACKAGES HERE
+aido-protocols-daffy
+duckietown-utils-daffy
 
+control
