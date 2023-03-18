@@ -1,4 +1,3 @@
-from .student_pid_class import PID
 import numpy as np
 import matplotlib.pyplot as plt
 import sys
@@ -11,7 +10,7 @@ class VerticalDrone:
     transfer it onto your real drone. Do not modify any of the code in this file.
     """
 
-    def __init__(self, pid : PID,
+    def __init__(self, pid,
                 step_size=0, latency=0, drag_coeff=0, mass=460, sensor_noise=0):
         self.setpoint = 0.5
 
@@ -23,7 +22,7 @@ class VerticalDrone:
         self.drag_coeff = drag_coeff
         self.mass = mass
         self.sensor_noise = sensor_noise / 100.
-        self.pid = PID
+        self.pid = pid
         self.reset()
 
     def step(self, t):
