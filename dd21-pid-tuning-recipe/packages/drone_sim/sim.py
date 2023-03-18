@@ -11,7 +11,7 @@ class VerticalDrone:
     transfer it onto your real drone. Do not modify any of the code in this file.
     """
 
-    def __init__(self, pid_terms=[0, 0, 0, 0],
+    def __init__(self, pid : PID,
                 step_size=0, latency=0, drag_coeff=0, mass=460, sensor_noise=0):
         self.setpoint = 0.5
 
@@ -23,7 +23,7 @@ class VerticalDrone:
         self.drag_coeff = drag_coeff
         self.mass = mass
         self.sensor_noise = sensor_noise / 100.
-        self.pid = PID(pid_terms[0], pid_terms[1], pid_terms[2], pid_terms[3])
+        self.pid = PID
         self.reset()
 
     def step(self, t):
