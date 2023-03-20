@@ -1,0 +1,5 @@
+# LIST YOUR PYTHON3 PACKAGES HERE
+numpy
+matplotlib
+ipywidgets
+ipympl
