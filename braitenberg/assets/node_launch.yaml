@@ -1,3 +1,0 @@
-node: braitenberg_agent.agent.BraitenbergAgent
-protocol: aido_schemas.protocol_agent_DB20
-config: {}
