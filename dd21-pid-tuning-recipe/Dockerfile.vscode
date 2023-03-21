@@ -33,6 +33,12 @@ ARG TARGETVARIANT
 # check build arguments
 RUN dt-build-env-check "${EXERCISE_NAME}" "${MAINTAINER}" "${DESCRIPTION}"
 
+# define/create repository path
+ARG REPO_PATH="${CATKIN_WS_DIR}/src/${EXERCISE_NAME}"
+RUN mkdir -p "${REPO_PATH}"
+WORKDIR "${REPO_PATH}"
+
+
 # install apt dependencies
 COPY --from=recipe ./dependencies-apt.txt "/tmp/"
 RUN dt-apt-install /tmp/dependencies-apt.txt
@@ -62,3 +68,8 @@ LABEL org.duckietown.label.module.type="exercise-vscode" \
 
 # <== Do not change the code above this line
 # <==================================================
+
+# setup vscode
+COPY --from=recipe assets/vscode/setup.sh /tmp/vscode_setup.sh
+RUN chmod +x /tmp/vscode_setup.sh
+RUN /tmp/vscode_setup.sh 

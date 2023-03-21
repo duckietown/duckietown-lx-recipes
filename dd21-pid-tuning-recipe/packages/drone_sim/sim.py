@@ -1,4 +1,3 @@
-from student_pid_class import PID
 import numpy as np
 import matplotlib.pyplot as plt
 import sys
@@ -11,8 +10,8 @@ class VerticalDrone:
     transfer it onto your real drone. Do not modify any of the code in this file.
     """
 
-    def __init__(self, pid_terms=[0, 0, 0, 0],
-                step_size=0, latency=0, drag_coeff=0, mass=460, sensor_noise=0):
+    def __init__(self, pid,
+                step_size=0, latency=0, drag_coeff=0, mass=0.460, sensor_noise=0):
         self.setpoint = 0.5
 
         self.x = 0
@@ -23,7 +22,7 @@ class VerticalDrone:
         self.drag_coeff = drag_coeff
         self.mass = mass
         self.sensor_noise = sensor_noise / 100.
-        self.pid = PID(pid_terms[0], pid_terms[1], pid_terms[2], pid_terms[3])
+        self.pid = pid
         self.reset()
 
     def step(self, t):
@@ -76,7 +75,7 @@ class VerticalDrone:
         self.times = []
         self.errors = []
         self.z_list = []
-        self.latent_thrusts = [1100] * self.latency
+        self.latent_thrusts = [self.pwm_to_thrust(1100)] * self.latency
         self.z = 0
         self.vz = 0
         self.az = 0
@@ -111,7 +110,7 @@ class VerticalDrone:
         plt.show()
 
     def pwm_to_thrust(self, pwm):
-        max_thrust = 420 * 4 * 9.81  # max thrust in newtons
+        max_thrust = 0.420 * 4 * 9.81  # max thrust in newtons
         pwm_min = 1100.
         pwm_max = 1900.
         pwm = max(pwm_min, min(pwm, pwm_max))  # bound the pwm between 1100 and 1900
