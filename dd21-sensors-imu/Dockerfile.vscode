@@ -1,8 +1,8 @@
 # syntax=docker/dockerfile:1.4
 # parameters
-ARG EXERCISE_NAME="duckiedrone-pid-tuning"
-ARG DESCRIPTION="VSCode - In this learning experience you will learn how to tune the PID on your Duckiedrone."
-ARG MAINTAINER="Davide Iafrate (davide.iafrate@duckietown.com)"
+ARG EXERCISE_NAME="dd21-sensors"
+ARG DESCRIPTION="VSCode - In this learning experience you will learn how the sensors on your Duckiedrone work."
+ARG MAINTAINER="Davide Iafrate (davide.iafrate@duckietow)"
 
 # ==================================================>
 # ==> Do not change the code below this line
@@ -33,12 +33,6 @@ ARG TARGETVARIANT
 # check build arguments
 RUN dt-build-env-check "${EXERCISE_NAME}" "${MAINTAINER}" "${DESCRIPTION}"
 
-# define/create repository path
-ARG REPO_PATH="${CATKIN_WS_DIR}/src/${EXERCISE_NAME}"
-RUN mkdir -p "${REPO_PATH}"
-WORKDIR "${REPO_PATH}"
-
-
 # install apt dependencies
 COPY --from=recipe ./dependencies-apt.txt "/tmp/"
 RUN dt-apt-install /tmp/dependencies-apt.txt
@@ -48,10 +42,6 @@ ARG PIP_INDEX_URL="https://pypi.org/simple"
 ENV PIP_INDEX_URL=${PIP_INDEX_URL}
 COPY --from=recipe ./dependencies-py3.* "/tmp/"
 RUN python3 -m pip install -r /tmp/dependencies-py3.txt
-
-
-# copy the source code (recipe)
-COPY --from=recipe ./packages "${REPO_PATH}/packages"
 
 # store module metadata
 LABEL org.duckietown.label.module.type="exercise-vscode" \
@@ -68,8 +58,3 @@ LABEL org.duckietown.label.module.type="exercise-vscode" \
 
 # <== Do not change the code above this line
 # <==================================================
-
-# setup vscode
-COPY --from=recipe assets/vscode/setup.sh /tmp/vscode_setup.sh
-RUN chmod +x /tmp/vscode_setup.sh
-RUN /tmp/vscode_setup.sh 
