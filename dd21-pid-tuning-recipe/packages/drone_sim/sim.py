@@ -11,7 +11,7 @@ class VerticalDrone:
     """
 
     def __init__(self, pid,
-                step_size=0, latency=0, drag_coeff=0, mass=460, sensor_noise=0):
+                step_size=0, latency=0, drag_coeff=0, mass=0.460, sensor_noise=0):
         self.setpoint = 0.5
 
         self.x = 0
@@ -75,7 +75,7 @@ class VerticalDrone:
         self.times = []
         self.errors = []
         self.z_list = []
-        self.latent_thrusts = [1100] * self.latency
+        self.latent_thrusts = [self.pwm_to_thrust(1100)] * self.latency
         self.z = 0
         self.vz = 0
         self.az = 0
@@ -110,7 +110,7 @@ class VerticalDrone:
         plt.show()
 
     def pwm_to_thrust(self, pwm):
-        max_thrust = 420 * 4 * 9.81  # max thrust in newtons
+        max_thrust = 0.420 * 4 * 9.81  # max thrust in newtons
         pwm_min = 1100.
         pwm_max = 1900.
         pwm = max(pwm_min, min(pwm, pwm_max))  # bound the pwm between 1100 and 1900
