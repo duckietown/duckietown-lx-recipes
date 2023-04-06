@@ -56,7 +56,7 @@ class VerticalDrone:
         self.times.append(t)
         self.errors.append(self.error)
         self.z_list.append(self.z)
-        self.pwm_commands.append()
+        self.pwm_commands.append(pwm)
         
     def update_setpoint(self,height):
         self.setpoint = height
