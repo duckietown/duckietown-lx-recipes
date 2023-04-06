@@ -56,6 +56,7 @@ class VerticalDrone:
         self.times.append(t)
         self.errors.append(self.error)
         self.z_list.append(self.z)
+        self.pwm_commands.append()
         
     def update_setpoint(self,height):
         self.setpoint = height
@@ -75,6 +76,7 @@ class VerticalDrone:
         self.times = []
         self.errors = []
         self.z_list = []
+        self.pwm_commands = []
         self.latent_thrusts = [self.pwm_to_thrust(1100)] * self.latency
         self.z = 0
         self.vz = 0
@@ -89,6 +91,8 @@ class VerticalDrone:
 
         for t in timevec:
             self.step(t)
+
+
 
     def plot_errors(self):
         fig = plt.gcf()
