@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Web Interface
+Comment=DD21 - UKF 2d - Web Interface - Exercise
+Exec=firefox file:///home/duckie/catkin_ws/src/pidrone_pkg/web/index.html
+Icon=/root/.icons/ukf-icon.png
+Terminal=true
+X-KeepTerminal=false
+StartupNotify=true

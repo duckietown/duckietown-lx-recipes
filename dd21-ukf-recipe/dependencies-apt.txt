@@ -1,2 +1,3 @@
 # LIST YOUR APT PACKAGES HERE
-python2
+firefox
+ros-noetic-rosbridge-server

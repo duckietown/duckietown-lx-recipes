@@ -72,3 +72,10 @@ RUN echo "source /home/duckie/catkin_ws/devel/setup.bash" >> /root/.bashrc
 # copy stuff for the user directory
 COPY --from=recipe assets/vnc/root/Desktop/. /root/Desktop/
 COPY --from=recipe assets/vnc/root/icons/. /root/.icons/
+
+
+# copy custom binaries
+COPY --from=recipe assets/vnc/usr/bin/. /usr/bin/
+
+# make binaries executable
+RUN chmod +x /usr/bin/launch-ukf-2d.sh
