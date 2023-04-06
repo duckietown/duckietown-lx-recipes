@@ -1,0 +1,5 @@
+# Exercise settings file
+
+agent_base: "duckietown_baseline"
+ws_dir: "solution" # directory that contains the code the user needs to see
+ros: true

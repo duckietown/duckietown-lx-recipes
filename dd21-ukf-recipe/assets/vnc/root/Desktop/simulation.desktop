@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Simulation
+Comment=DD21 - UKF 2d - simulation - Exercise
+Exec=python /home/duckie/catkin_ws/src/pidrone_pkg/scripts/state_estimator.py --primary ukf2d --others simulator --ir_var 0.01
+Icon=/root/.icons/ukf-icon.png
+Terminal=true
+X-KeepTerminal=true
+StartupNotify=true
