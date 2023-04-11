@@ -87,3 +87,7 @@ RUN . /opt/ros/noetic/setup.sh && \
     source /home/duckie/catkin_ws/devel/setup.bash && \
     catkin_make
 RUN echo "source /root/catkin_ws/devel/setup.bash" >> /root/.bashrc
+
+# set variance value
+COPY --from=meat --chmod=0755 assets/IR_VARIANCE_ESTIMATE.sh .
+RUN cat IR_VARIANCE_ESTIMATE.sh >> /root/.bashrc
