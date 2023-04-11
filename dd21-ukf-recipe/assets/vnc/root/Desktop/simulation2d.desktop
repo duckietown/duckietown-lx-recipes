@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Simulation 2D
+Comment=DD21 - UKF 2D - simulation - Exercise
+Exec=/usr/bin/launch-ukf-2d.sh
+Icon=/root/.icons/duckiedrone-icon.png
+Terminal=true
+X-KeepTerminal=true
+StartupNotify=true
