@@ -5,6 +5,6 @@ Name=Web Interface
 Comment=DD21 - UKF 2d - Web Interface - Exercise
 Exec=firefox file:///home/duckie/catkin_ws/src/pidrone_pkg/web/index.html
 Icon=/root/.icons/ukf-icon.png
-Terminal=true
+Terminal=false
 X-KeepTerminal=false
 StartupNotify=true
