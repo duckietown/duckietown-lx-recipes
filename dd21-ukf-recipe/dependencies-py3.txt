@@ -1,2 +1,2 @@
 # LIST YOUR PYTHON3 PACKAGES HERE
-
+filterpy<1.4.2
