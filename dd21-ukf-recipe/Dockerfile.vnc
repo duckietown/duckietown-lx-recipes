@@ -79,3 +79,11 @@ COPY --from=recipe assets/vnc/usr/bin/. /usr/bin/
 
 # make binaries executable
 RUN chmod +x /usr/bin/launch-ukf-2d.sh
+
+# copy and install student exercise
+COPY --from=meat packages/project-* /root/catkin_ws/src/
+WORKDIR /root/catkin_ws/
+RUN . /opt/ros/noetic/setup.sh && \
+    source /home/duckie/catkin_ws/devel/setup.bash && \
+    catkin_make
+RUN echo "source /root/catkin_ws/devel/setup.bash" >> /root/.bashrc
