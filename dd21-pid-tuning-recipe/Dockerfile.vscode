@@ -4,6 +4,10 @@ ARG EXERCISE_NAME="duckiedrone-pid-tuning"
 ARG DESCRIPTION="VSCode - In this learning experience you will learn how to tune the PID on your Duckiedrone."
 ARG MAINTAINER="Davide Iafrate (davide.iafrate@duckietown.com)"
 
+# YOUR GITHUB TOKEN CREDENTIALS
+ARG GITHUB_USERNAME=tuxliri
+ARG GITHUB_TOKEN=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
+
 # ==================================================>
 # ==> Do not change the code below this line
 ARG ARCH
@@ -73,3 +77,8 @@ LABEL org.duckietown.label.module.type="exercise-vscode" \
 COPY --from=recipe assets/vscode/setup.sh /tmp/vscode_setup.sh
 RUN chmod +x /tmp/vscode_setup.sh
 RUN /tmp/vscode_setup.sh 
+
+# Enable fetching private repos
+RUN git config --system url."https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@github.com/".insteadOf "http://github.com/"
+RUN git config --system user.email "fake@dt.com"
+RUN git config --system user.name "VSCode"
