@@ -73,11 +73,3 @@ LABEL org.duckietown.label.module.type="exercise-vscode" \
 COPY --from=recipe assets/vscode/setup.sh /tmp/vscode_setup.sh
 RUN chmod +x /tmp/vscode_setup.sh
 RUN /tmp/vscode_setup.sh 
-
-# Enable fetching private repos
-COPY --from=meat GITHUB_CREDENTIALS.sh /tmp/GITHUB_CREDENTIALS.sh
-RUN chmod +x /tmp/GITHUB_CREDENTIALS.sh
-RUN /tmp/GITHUB_CREDENTIALS.sh
-
-RUN git config --system user.email "fake@dt.com"
-RUN git config --system user.name "VSCode"
