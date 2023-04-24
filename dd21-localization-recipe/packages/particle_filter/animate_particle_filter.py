@@ -98,29 +98,3 @@ def animate(i):
         return particles
     elif box.time_step == len(box.poses):
         exit()
-
-
-# -------------- read poses and initialize particle box --------------------
-poses = read_pose_file('particle_filter_data.txt', 100)
-
-box = ParticleBox(poses)
-
-# ---------------- set up figure and animation ------------------
-fig = plt.figure()
-fig.subplots_adjust(left=0, right=1, bottom=0, top=1)
-ax = fig.add_subplot(111, aspect='equal', autoscale_on=False, xlim=(0, 10), ylim=(0, 10))
-
-# particles holds the locations of the particles
-particles, = ax.plot([], [], 'bo', ms=6)
-
-# ------------------ start animation ----------------------
-ani = animation.FuncAnimation(fig, animate, interval=200, blit=False, init_func=init)
-
-# ani.save('name.mp4', fps=10, extra_args=['-vcodec', 'libx264'])
-
-plt.show()
-
-
-
-
-
