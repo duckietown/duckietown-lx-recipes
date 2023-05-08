@@ -70,5 +70,6 @@ LABEL org.duckietown.label.module.type="exercise-vscode" \
 
 # setup vscode
 COPY --from=recipe assets/vscode/setup.sh /tmp/vscode_setup.sh
+COPY --from=recipe assets/slam /code/assets/slam
 RUN chmod +x /tmp/vscode_setup.sh
 RUN /tmp/vscode_setup.sh
