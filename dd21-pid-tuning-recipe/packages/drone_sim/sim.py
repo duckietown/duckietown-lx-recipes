@@ -11,7 +11,7 @@ class VerticalDrone:
     transfer it onto your real drone. Do not modify any of the code in this file.
     """
 
-    def __init__(self, pid, latency=0, drag_coeff=0, mass=0.460, sensor_noise=0):
+    def __init__(self, pid_controller, latency=0, drag_coeff=0, mass=0.460, sensor_noise=0):
         self.setpoint = 0.5
 
         self.x = 0
@@ -22,7 +22,7 @@ class VerticalDrone:
         self.drag_coeff = drag_coeff
         self.mass = mass
         self.sensor_noise = sensor_noise / 100.
-        self.pid = pid
+        self.pid_controller = pid_controller
         self.reset()
 
     def step(self, t):
@@ -39,7 +39,7 @@ class VerticalDrone:
         self.lasterror = self.error
 
         noise = np.random.normal(scale=self.sensor_noise) if self.sensor_noise > 0 else 0
-        pwm = self.pid.step(self.error + noise, dt)  # calc forces
+        pwm = self.pid_controller.step(self.error + noise, dt)  # calc forces
 
         self.latent_thrusts.append(self.pwm_to_thrust(pwm))
         thrust = self.latent_thrusts.pop(0)
@@ -83,7 +83,7 @@ class VerticalDrone:
         self.az = 0
         self.interror = 0
         self.lasterror = 0
-        self.pid.reset()
+        self.pid_controller.reset()
 
     def simulate(self,start_time=0.0,end_time=5.0):
         timevec = np.linspace(start_time,end_time,1000)
