@@ -17,7 +17,6 @@ class VerticalDrone:
         self.x = 0
         self.xsp = 0
         self.g = -9.81
-        self.step_size = step_size / 100.
         self.latency = latency
         self.drag_coeff = drag_coeff
         self.mass = mass
