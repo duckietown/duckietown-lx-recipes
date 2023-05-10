@@ -11,8 +11,7 @@ class VerticalDrone:
     transfer it onto your real drone. Do not modify any of the code in this file.
     """
 
-    def __init__(self, pid,
-                step_size=0, latency=0, drag_coeff=0, mass=0.460, sensor_noise=0):
+    def __init__(self, pid, latency=0, drag_coeff=0, mass=0.460, sensor_noise=0):
         self.setpoint = 0.5
 
         self.x = 0
@@ -122,15 +121,3 @@ class VerticalDrone:
         throttle_fraction = (pwm - pwm_min) / (pwm_max - pwm_min)  # rescale between 0 and 1
 
         return throttle_fraction * max_thrust
-
-
-    def press(self, event):
-        if event.key == 'up':
-            self.setpoint += self.step_size
-        elif event.key == 'down':
-            if self.setpoint > 0: self.setpoint -= self.step_size
-        elif event.key == 'r':
-            self.reset()
-        elif event.key == 'q':
-            plt.close('all')
-            sys.exit(0)
