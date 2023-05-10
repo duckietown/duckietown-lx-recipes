@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import sys
 
+METERS_TO_CENTIMETERS = 100
 
 class VerticalDrone:
     """
@@ -33,7 +34,7 @@ class VerticalDrone:
 
         self.lastt = t
 
-        self.error = self.setpoint - self.z # update error
+        self.error = (self.setpoint - self.z)*METERS_TO_CENTIMETERS # update error
         self.interror += self.error
         self.deriverror = self.lasterror - self.error
         self.lasterror = self.error
