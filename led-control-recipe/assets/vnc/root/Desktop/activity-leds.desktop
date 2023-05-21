@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=LEDs
+Comment=LEDs
+Exec=/usr/bin/launch-led-publisher.sh
+Icon=/root/.icons/led_icon.png
+Terminal=true
+X-KeepTerminal=true
+StartupNotify=true

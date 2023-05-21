@@ -1,0 +1,12 @@
+# challenge name(s); defaults to all compatible challenges
+challenge: ["lx22-BV1"]
+
+# conventions + format
+protocol: "aido2_db18_agent-z2"
+
+# any user label - displayed in "challenges list"
+user-label: "led-control"
+
+# any JSON payload
+user-payload:
+    exercise: led-control
