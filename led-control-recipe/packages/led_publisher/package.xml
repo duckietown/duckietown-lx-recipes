@@ -2,7 +2,7 @@
 <package>
   <name>led_publisher</name>
   <version>1.0.0</version>
-  <description>The package containing a basic LED publsher.</description>
+  <description>The package containing a basic LED publisher.</description>
 
   <maintainer email="kathryn@duckietown.com">Kathryn Hite</maintainer>
 
