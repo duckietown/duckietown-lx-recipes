@@ -1,4 +1,5 @@
 # Exercise settings file
+ros: True
 editor:
     secrets:
         - github/credentials/token
