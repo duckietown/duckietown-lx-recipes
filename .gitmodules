@@ -1,0 +1,3 @@
+[submodule "dd21-ukf-recipe/assets/pidrone_pkg"]
+	path = dd21-ukf-recipe/assets/pidrone_pkg
+	url = https://github.com/h2r/pidrone_pkg.git
