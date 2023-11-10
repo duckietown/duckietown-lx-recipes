@@ -1,0 +1,6 @@
+# LIST YOUR PYTHON3 PACKAGES HERE
+opencv-python==3.4.*
+numpy
+matplotlib
+ipywidgets
+ipympl

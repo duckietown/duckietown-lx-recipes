@@ -1,0 +1,4 @@
+# Exercise settings file
+editor:
+    secrets:
+        - github/credentials/token
