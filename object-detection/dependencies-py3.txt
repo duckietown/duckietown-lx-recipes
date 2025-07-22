@@ -17,7 +17,7 @@ pyglet==1.5.15
 dt-data-api>=2.1.0,<3
 
 # numpy (pinned version is needed due to incompatibilities with duckietown-world)
-numpy==1.20.0
+numpy==1.21.0
 # pandas (pinned version is to avoid this: https://stackoverflowteams.com/c/duckietown/questions/2673)
 pandas==1.4.4
 
